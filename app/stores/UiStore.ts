@@ -410,6 +410,9 @@ class UiStore {
       this.secondaryRightSidebar = panel;
     } else {
       this.rightSidebar = panel;
+      // Persist so that closing the panel is not overwritten by a stale value
+      // from an earlier write (e.g. toggling the table of contents).
+      this.persist();
     }
   };
 
